@@ -9,57 +9,63 @@
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-  //$("#passwordp").hide();
- // $("#passwordt").show();
-  $("#passwordt").focus(function(){
-	if($("#passwordt").val() == "密码")
+  $("#showpsw").focus(function(){
+	if($(this).val() == "密码")
 		{
-		//alert("d");
-	  	$("#passwordp").show();
-	  	$("#passwordp").focus();
-		$("#passwordt").hide();
+	  	$("#hidepsw").show();
+	  	$("#hidepsw").focus();
+		$(this).hide();
 		}
 	  });
+
+  $("#username").focus(function(){
+		if($(this).val() == "用户名")
+			{
+		  	$(this).val("")
+			}
+  });
   
-  $("#passwordp").blur(function(){
-	  if (!$('#passwordp').val())
+  $("#hidepsw").blur(function(){
+	  if (!$(this).val())
 	  {
-		//alert("tes");
-	  	$("#passwordt").show();
-	    $("#passwordt").attr("value","密码");
-		$("#passwordp").hide();
+	  	$("#showpsw").show();
+	    $("#showpsw").attr("value","密码");
+		$(this).hide();
 	  }
-	  
   });
 
   $("#username").blur(function(){
 	  if (!$(this).val())
 	  {
-		//alert("tes");
-	    $(this).attr("value","yong");
-	  }
-	  
+	    $(this).attr("value","用户名");
+	  } 
   });
   
 });
 </script>
+
+<style type="text/css">
+  .logininput
+	{
+	font-family: cursive , serif ;
+    color: gray ;
+    }
+</style>
 </head>
+
 <body>
 	<form id='login' action="$_SERVER['PHP_SELF']" method='post'
 		accept-charset='UTF-8'>
 		<fieldset>
-			<label for='username'> <span>UserName*:</span> <input type='text'
-				name='username' id='username' value="yonghuming" maxlength="50" />
-			</label> <label for='password'> 
-			<span>Password*:</span><br/>
-			 <input
-				type='password' name='password' id='passwordp' style="display:none" maxlength="50" /><br />
-				<input
-				type='text' name='password' id='passwordt' value="密码" maxlength="50" /><br />
-			</label>
+		<div class="logininput">
+		<p>himan</p>
+			<input type='text' id='username' value="用户名" maxlength="50" /> <input
+				 type='password' id='hidepsw' style="display: none" maxlength="50" />
+			<input type='text' id='showpsw' value="密码" maxlength="50" /><br />
+		</div>
 		</fieldset>
 		<fieldset>
-			<input type='submit' name='Submit' value='Submit' />
+			<input type='submit' name='Submit' value='登陆' />
 		</fieldset>
 	</form>
 </body>
