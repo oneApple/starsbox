@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
-<meta http-equiv='Content-Type' content='text/html; charset=gb2312' />
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta http-equiv='keywords' content='cuc,makrt' />
 <title>StarsBox</title>
 
@@ -10,7 +10,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
   $("#showpsw").focus(function(){
-	if($(this).val() == "ÃÜÂë")
+	if($(this).val() == "å¯†ç ")
 		{
 	  	$("#hidepsw").show();
 	  	$("#hidepsw").focus();
@@ -19,9 +19,10 @@ $(document).ready(function(){
 	  });
 
   $("#username").focus(function(){
-		if($(this).val() == "ÓÃ»§Ãû")
+		if($(this).val() == "ç”¨æˆ·å")
 			{
 		  	$(this).val("")
+		  	$(this).css("color","black")
 			}
   });
   
@@ -29,7 +30,7 @@ $(document).ready(function(){
 	  if (!$(this).val())
 	  {
 	  	$("#showpsw").show();
-	    $("#showpsw").attr("value","ÃÜÂë");
+	    $("#showpsw").attr("value","å¯†ç ");
 		$(this).hide();
 	  }
   });
@@ -37,7 +38,8 @@ $(document).ready(function(){
   $("#username").blur(function(){
 	  if (!$(this).val())
 	  {
-	    $(this).attr("value","ÓÃ»§Ãû");
+		$(this).css("color","gray")
+	    $(this).attr("value","ç”¨æˆ·å");
 	  } 
   });
   
@@ -45,28 +47,87 @@ $(document).ready(function(){
 </script>
 
 <style type="text/css">
-  .logininput
-	{
-	font-family: cursive , serif ;
-    color: gray ;
-    }
+body{
+	background-color: pink;
+}
+
+.login_input{
+	color: gray;
+	width:250px;
+	height:25px
+}
+
+.login_field{
+	position: absolute;
+	margin:10%;
+	line-height: 400%;
+}
+
+.login_row3_submit{
+	line_with:200%;
+	color:gray;
+	word_space:100px;
+}
+a:link,a:visited{
+	color:gray;
+}
+
+#btsubmit{
+	position: relative;
+	top:16px;
+	width:80px;
+	line_with:200%;
+	float:right;
+}
+
+.register_link{
+	float:right;
+}
+
+.links , .copyright{
+text-align:center;
+}
+
+.fixed{position:fixed;bottom:5%;left:0;width:100%;}
+.fixed .foot_center{width:800px;margin:0 auto;}
 </style>
 </head>
 
 <body>
-	<form id='login' action="$_SERVER['PHP_SELF']" method='post'
+	<form id='login_form' action="$_SERVER['PHP_SELF']" method='post'
 		accept-charset='UTF-8'>
-		<fieldset>
-		<div class="logininput">
-		<p>himan</p>
-			<input type='text' id='username' value="ÓÃ»§Ãû" maxlength="50" /> <input
-				 type='password' id='hidepsw' style="display: none" maxlength="50" />
-			<input type='text' id='showpsw' value="ÃÜÂë" maxlength="50" /><br />
-		</div>
-		</fieldset>
-		<fieldset>
-			<input type='submit' name='Submit' value='µÇÂ½' />
+		<fieldset class="login_field">
+			<div class="login_row1_username">
+				<input class="login_input" type='text' id='username' value="ç”¨æˆ·å" />
+			</div>
+			<div class="login_row2_password">
+				<input class="login_input" type='password' id='hidepsw' style="display: none"/> 
+			    <input class="login_input" type='text' id='showpsw' value="å¯†ç "/>
+			</div>
+			<div class="login_row3_submit">
+			<label class="remeber_check">
+			<input type="checkbox" value="1" checked="checked"/>
+            <span>è®°ä½æˆ‘</span> 
+            </label>
+            <a class="forgot" href="/account/resend_password">å¿˜è®°å¯†ç ?</a>
+			<input type='submit' id="btsubmit" name='Submit' value='ç™»å½•' />
+			</div>
+		<div class="register_link">
+            <span><a href="https://reg.jd.com/reg/person">å…è´¹æ³¨å†Œ&gt;&gt;</a></span>
+        </div>	
 		</fieldset>
 	</form>
+	
+	<div class="fixed">
+	 <div class="foot_center">
+        <div class="links">
+        <a rel="nofollow" target="_blank" href="http://www.jd.com/intro/about.aspx">å¸®åŠ©è¯´æ˜</a>|
+        <a rel="nofollow" target="_blank" href="http://www.jd.com/contact/">è”ç³»æˆ‘ä»¬</a>|
+        <a target="_blank" href="http://club.jd.com/links.aspx">å‹æƒ…é“¾æ¥</a>
+        </div>
+        <div class="copyright">Copyright&copy;2013&nbsp;&nbsp;StarsBox.com&nbsp;ç‰ˆæƒæ‰€æœ‰</div>
+    </div>
+    </div>
+    
 </body>
 </html>
